@@ -1,0 +1,77 @@
+code_review_task:
+  description: >
+    Review the provided codebase (files, modules, or a pasted snippet) and produce a
+    prioritized list of issues. Identify bugs, code smells, anti-patterns, poor
+    naming, duplication, missing error handling, and maintainability problems.
+    For each issue, include: severity (Critical/High/Medium/Low), file/function
+    location, why it matters, and a clear recommendation.
+  expected_output: >
+    A Markdown report with:
+    1) Summary of overall code health
+    2) Prioritized issue list (with severity + location + fix guidance)
+    3) Quick wins (changes that improve quality fast)
+    4) Questions/assumptions (anything unclear about requirements)
+  agent: code_reviewer
+  output_file: output/code_review_report.md
+
+security_audit_task:
+  description: >
+    Perform a security-focused review of the same codebase. Identify common
+    vulnerability classes (injection risks, insecure deserialization, weak auth,
+    secrets leakage, unsafe file handling, insecure defaults, missing validation,
+    dependency risks). Provide concrete mitigation steps and safer alternatives.
+  expected_output: >
+    A Markdown security audit with:
+    1) Threat summary (what could realistically go wrong)
+    2) Vulnerabilities list (severity + location + exploit scenario + fix)
+    3) Dependency and configuration concerns (if applicable)
+    4) Hardening checklist
+  agent: security_analyst
+  output_file: output/security_audit_report.md
+  
+performance_review_task:
+  description: >
+    Analyze the code for performance bottlenecks and scalability issues. Flag
+    inefficient algorithms, unnecessary repeated work, blocking I/O, excessive
+    allocations, N+1 patterns, and unbounded loops. Recommend optimizations and
+    note expected impact (latency, memory, throughput).
+  expected_output: >
+    A Markdown performance review with:
+    1) Bottlenecks and hotspots (with location)
+    2) Recommended optimizations (with rationale + expected impact)
+    3) Suggested profiling/benchmark plan (what to measure and how)
+  agent: performance_engineer
+  output_file: output/performance_review_report.md
+  
+refactor_strategy_task:
+  description: >
+    Using the outputs from the code review, security audit, and performance review,
+    propose a cohesive refactoring plan. Define the target architecture, modular
+    boundaries, and sequencing of changes. Balance maintainability with risk and
+    effort. Specify what should be changed now vs later.
+  expected_output: >
+    A structured refactoring plan in Markdown including:
+    1) Refactoring goals and non-goals
+    2) Proposed architecture/design changes (modules, APIs, boundaries)
+    3) Step-by-step implementation roadmap (phased plan)
+    4) Risk assessment and rollback strategy
+    5) Acceptance criteria (how we know refactor succeeded)
+  agent: software_architect
+  output_file: output/refactor_strategy_report.md
+  
+refactor_implementation_task:
+  description: >
+    Apply the approved refactoring plan to produce an improved version of the code.
+    Preserve existing behavior while improving readability, structure, security,
+    and performance where feasible. Add/adjust docstrings, comments, and minimal
+    tests or sanity checks when helpful. Output changes as clear patches/diffs or
+    updated files.
+  expected_output: >
+    Deliverables:
+    1) A refactored code output (updated files or a unified diff/patch)
+    2) A short CHANGELOG describing key changes and why
+    3) Notes on any behavior changes (should be none unless explicitly required)
+    4) Follow-up recommendations (tests, CI checks, linting)
+  agent: refactoring_editor
+  output_file: output/refactor_implementation_report.md
+  
