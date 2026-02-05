@@ -88,7 +88,9 @@ This example, unmodified, will run the create a `report.md` file with the output
 
 The codereviewer Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
 
-##  Project Structure
+## Project Structure
+
+```
 codereviewer/
 │
 ├── src/codereviewer/
@@ -96,13 +98,14 @@ codereviewer/
 │   │   ├── agents.yaml
 │   │   └── tasks.yaml
 │   │
-│   ├── crew.py
-│   ├── main.py
-│   └── sample_app.py
+│   ├── crew.py          # Multi-agent orchestration
+│   ├── main.py          # Entry point
+│   └── sample_app.py    # Example codebase for testing
 │
 ├── .env
 ├── pyproject.toml
 └── README.md
+```
 
 Let's create wonders together with the power and simplicity of crewAI.
 
