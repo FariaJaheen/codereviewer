@@ -111,10 +111,11 @@ Let's create wonders together with the power and simplicity of crewAI.
 
 ## Author
 
-Faria Jaheen
-AI Researcher
-Specializing in:
-	•	Multi-agent AI systems
-	•	Generative AI engineering
-	•	Autonomous software systems
-	•	Intelligent developer tooling
+**Faria Jaheen, PhD.**  
+AI Researcher & Engineer specializing in next-generation intelligent systems.
+
+**Core Expertise**
+- Multi-Agent AI Systems  
+- Generative AI Engineering  
+- Autonomous Software & Agent Architectures  
+- Intelligent Developer Tooling  
